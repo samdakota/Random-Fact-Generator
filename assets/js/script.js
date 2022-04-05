@@ -22,13 +22,17 @@ var options = {
 		'X-RapidAPI-Host': 'numbersapi.p.rapidapi.com',
 		'X-RapidAPI-Key': '9c10ec6a12msh0d77185cdbaed53p1dfbb3jsn659430c1bc12'
 	}
+  // JSON.stringify(data),
+  //JSON.parse(data)
 };
 //This works
 //Random Number fact API
-fetch('https://numbersapi.p.rapidapi.com/50/trivia?fragment=true&notfound=floor&json=true', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+  fetch('https://numbersapi.p.rapidapi.com/50/trivia?fragment=true&notfound=floor&json=true', options)
+  .then(function(response) {
+    response.json().then(function(data) {
+      console.log(data);
+    });
+  });
 
 //This works  
 //Random Cat fact API
@@ -36,6 +40,7 @@ fetch('https://cat-fact.herokuapp.com/facts')
     .then(response => response.json())
     .then(response => console.log(response))
     .catch(err => console.log(err));
+    
 
 //This does not work
 // var getNumberFact = function(data) {
@@ -45,9 +50,8 @@ fetch('https://cat-fact.herokuapp.com/facts')
 //     // make a get request to url
 //     fetch(numberApiUrl)
 //       .then(function(response) {
-//         if (response.ok) {
 //           response.json().then(function(data) {
-//             displayFact(data, options);
+//             consol.log(data);
 //           });
 //   };
 
@@ -59,11 +63,10 @@ fetch('https://cat-fact.herokuapp.com/facts')
   //   // make a get request to url
   //   fetch(catApiUrl)
   //     .then(function(response) {
-  //       if (response.ok) {
   //         response.json().then(function(data) {
-  //           displayFact(data);
+  //           console.log(data);
   //         });
-  // };
+  // }
 
   // var displayFact = function() {
   //   factContainerEl.textContent = ""
