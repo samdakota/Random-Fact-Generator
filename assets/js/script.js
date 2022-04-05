@@ -5,17 +5,15 @@ var saveFactBtn = document.querySelector('#save-fact')
 var newFactBtn = document.querySelector('#new-fact')
 var savedFactBtn = document.querySelector('#saved-fact')
 
-var getCatFactHandler = function(event) {
-    event.preventDefault();
+// var getCatFactHandler = function(event) {
 
-   getCatFact();
-};
+//    getCatFact();
+// };
 
-var getNumberFactHandler = function(event) {
-    event.preventDefault();
+// var getNumberFactHandler = function(event) {
 
-    getNumberFact();
-};
+//     getNumberFact();
+// };
 
 //fetch requests to both APIs - ROB
 var options = {
@@ -25,75 +23,66 @@ var options = {
 		'X-RapidAPI-Key': '9c10ec6a12msh0d77185cdbaed53p1dfbb3jsn659430c1bc12'
 	}
 };
-
+//This works
 //Random Number fact API
 fetch('https://numbersapi.p.rapidapi.com/50/trivia?fragment=true&notfound=floor&json=true', options)
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
-  
+
+//This works  
 //Random Cat fact API
 fetch('https://cat-fact.herokuapp.com/facts')
     .then(response => response.json())
     .then(response => console.log(response))
     .catch(err => console.log(err));
 
-var getNumberFact = function(data) {
-    // format the github api url
-    var numberApiUrl = 'https://numbersapi.p.rapidapi.com/50/trivia?fragment=true&notfound=floor&json=true' + options;
+//This does not work
+// var getNumberFact = function(data) {
+//     // format the github api url
+//     var numberApiUrl = 'https://numbersapi.p.rapidapi.com/50/trivia?fragment=true&notfound=floor&json=true' + options;
   
-    // make a get request to url
-    fetch(numberApiUrl)
-      .then(function(response) {
-        // request was successful
-        if (response.ok) {
-          console.log(response);
-          response.json().then(function(data) {
-            console.log(data);
-            getNumberFact(data, options);
-          });
-        } else { //take this out at the end, just using to make sure it works
-          alert("Error: " + response.statusText);
-        }
-      })
-      .catch(function(error) { //take this out at the end, just using to make sure it works
-        alert("Unable to connect to Number API");
-      });
-  };
+//     // make a get request to url
+//     fetch(numberApiUrl)
+//       .then(function(response) {
+//         if (response.ok) {
+//           response.json().then(function(data) {
+//             displayFact(data, options);
+//           });
+//   };
 
-  var getCatFact = function(data) {
-    // format the github api url
-    var catApiUrl = 'https://cat-fact.herokuapp.com/facts';
+//This does not work
+  // var getCatFact = function(data) {
+  //   // format the github api url
+  //   var catApiUrl = 'https://cat-fact.herokuapp.com/facts';
   
-    // make a get request to url
-    fetch(catApiUrl)
-      .then(function(response) {
-        // request was successful
-        if (response.ok) {
-          console.log(response);
-          response.json().then(function(data) {
-            console.log(data);
-            getCatFact(data);
-          });
-        } else { //take this out at the end, just using to make sure it is working
-          alert("Error: " + response.statusText);
-        }
-      })
-      .catch(function(error) { //take this out at the end, just using to make sure it is working
-        alert("Unable to connect to Cat API");
-      });
-  };
+  //   // make a get request to url
+  //   fetch(catApiUrl)
+  //     .then(function(response) {
+  //       if (response.ok) {
+  //         response.json().then(function(data) {
+  //           displayFact(data);
+  //         });
+  // };
 
-  var displayFact = function() {
+  // var displayFact = function() {
+  //   factContainerEl.textContent = ""
+  //   factContainerTitleEl.textContent = "Fun Fact:";
 
-  }
+  //   var fact = data.list;
+  //   console.log(length)
+  //     for(var i = 5; i < data.length; i++) {
+  //       var randomFact = document.createElement("p");
+  //       factContainerEl.classList = "needs styling keywords from Bulma";
+  //     };
+  // }
 
-  //needs: 
-  //button clicked on fact category
-  //call to API that was clicked
-  //parse data to display fact
-  //button for save fact
+  //Needs:
+  //button for each category
+  //call to API that was clicked (specific category)
+  //parse data from fetch call to display fact on display fact page
+  //button to save fact
   //button listener to save fact to local storage
     //localStorage.setItem(""); save to local storage
     //localStorage.getItem(""); get it from local storage
-
+  //saved fact display page (create li)
