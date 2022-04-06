@@ -1,4 +1,44 @@
-//fetch requests to both APIs - ROB
+var categoryContainerEl = document.getElementById('category-container')
+var newFactContainerEl = document.getElementById('fact-container')
+var savedFactContainerEl = document.getElementById('saved-fact-container')
+
+// buttons
+var saveFactBtn = document.getElementById('save-fact')
+var newFactBtn = document.getElementById('new-fact')
+var savedFactBtn = document.getElementById('saved-fact')
+
+// generate category buttons
+const categories = [
+  {
+    name:"Numbers",
+    API:"",
+  },
+  {
+    name:"Cats",
+    API:"https://cat-fact.herokuapp.com/facts",
+  }
+]
+
+function createCategoryBtns() {
+  for (let i = 0; i < categories.length; i++) {
+    var categoryButton = document.createElement("button");
+    categoryButton.onclick = displayNewFact;
+    categoryButton.textContent = categories[i].name;
+    categoryContainerEl.appendChild(categoryButton);
+  }
+}
+createCategoryBtns();
+
+function displayNewFact() {
+  var newFactEl = document.createElement("h1");
+  newFactEl.textContent = "response";
+  newFactContainerEl.appendChild(newFactEl);
+  categoryContainerEl.setAttribute("class", "hide");
+  newFactBtn.removeAttribute("class", "hide");
+  saveFactBtn.removeAttribute("class", "hide");
+}
+
+//fetch requests to both APIs
 var options = {
   method: "GET",
   headers: {
@@ -7,9 +47,13 @@ var options = {
   },
 };
 
+// create random number less than max value
+function randomNumber(max) {
+  var max = 10;
+  return Math.floor(Math.random() * max);
+}
 
 var getNumberFact = function (number) {
-  // format the github api url
   var numberApiUrl =
     "https://numbersapi.p.rapidapi.com/"+number+"/trivia?fragment=true&notfound=floor&json=true";
 
@@ -22,11 +66,8 @@ var getNumberFact = function (number) {
       console.log(data);
     });
 };
-getNumberFact(50);
-
 
 var getCatFact = function () {
-  // format the github api url
   var catApiUrl = "https://cat-fact.herokuapp.com/facts";
 
   // make a get request to url
@@ -37,6 +78,9 @@ var getCatFact = function () {
     .then(function (data) {
       console.log(data);
     });
+    // var newCatFact = data[randomNumber(10)].text;
+    // console.log(newCatFact);
 };
 getCatFact();
+
 
