@@ -24,6 +24,11 @@ function createCategoryBtns() {
     var categoryButton = document.createElement("button");
     categoryButton.onclick = displayNewFact;
     categoryButton.textContent = categories[i].name;
+    if (categories[i].name == "Cats") {
+      categoryButton.setAttribute("id", "cat-button")
+    } else if (categories[i].name == "Numbers") {
+      categoryButton.setAttribute("id", "numbers-button");
+    }
     categoryContainerEl.appendChild(categoryButton);
   }
 }
