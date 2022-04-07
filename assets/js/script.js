@@ -11,7 +11,7 @@ var savedFactBtn = document.getElementById('saved-fact')
 const categories = [
   {
     name:"Numbers",
-    API:"",
+    API:"https://numbersapi.p.rapidapi.com/50/trivia?fragment=true&notfound=floor&json=true",
   },
   {
     name:"Cats",
@@ -22,7 +22,8 @@ const categories = [
 function createCategoryBtns() {
   for (let i = 0; i < categories.length; i++) {
     var categoryButton = document.createElement("button");
-    categoryButton.onclick = displayNewFact;
+    categoryButton.onclick = displayNewCatFact;
+    // categoryButton.onclick = displayNewNumberFact;
     categoryButton.textContent = categories[i].name;
     if (categories[i].name == "Cats") {
       categoryButton.setAttribute("id", "cat-button")
@@ -34,14 +35,23 @@ function createCategoryBtns() {
 }
 createCategoryBtns();
 
-function displayNewFact() {
-  var newFactEl = document.createElement("h1");
-  newFactEl.textContent = "response";
-  newFactContainerEl.appendChild(newFactEl);
+function displayNewCatFact() {
+  var newCatFactEl = document.createElement("h1");
+  newCatFactEl.textContent = getCatFact();
+  newFactContainerEl.appendChild(newCatFactEl);
   categoryContainerEl.setAttribute("class", "hide");
   newFactBtn.removeAttribute("class", "hide");
   saveFactBtn.removeAttribute("class", "hide");
 }
+
+// function displayNewNumberFact() {
+//   var newNumberFactEl = document.createElement("h1");
+//   newNumberFactEl.textContent = getNumberFact();
+//   newNumberFactContainerEl.appendChild(newNumberFactEl);
+//   categoryContainerEl.setAttribute("class", "hide");
+//   newFactBtn.removeAttribute("class", "hide");
+//   saveFactBtn.removeAttribute("class", "hide");
+// }
 
 //fetch requests to both APIs
 var options = {
@@ -53,9 +63,8 @@ var options = {
 };
 
 // create random number less than max value
-function randomNumber(max) {
-  var max = 10;
-  return Math.floor(Math.random() * max);
+function randomNumber() {
+  return Math.floor(Math.random() * 5);
 }
 
 var getNumberFact = function (number) {
@@ -68,12 +77,18 @@ var getNumberFact = function (number) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      console.log("numberapi = ", data);
+
+      var newNumberFact = data.text;
+      console.log(newNumberFact);
+      return newNumberFact;
     });
 };
+getNumberFact(50);
 
 var getCatFact = function () {
   var catApiUrl = "https://cat-fact.herokuapp.com/facts";
+  // var newCat = ""
 
   // make a get request to url
   fetch(catApiUrl)
@@ -81,16 +96,20 @@ var getCatFact = function () {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-    });
-    // var newCatFact = data[randomNumber(10)].text;
-    // console.log(newCatFact);
+      console.log("catapiurl = ", data);
+
+    var newCatFact = data[randomNumber()].text;
+     console.log(newCatFact);
+    return newCatFact; 
+  });
+  // console.log("newCat = ", newCat)
+  // return newCat;
 };
-getCatFact();
+//  getCatFact();
 
 
-localStorage.setItem("fact", "specific fact that was pulled");
+// localStorage.setItem("fact", "specific fact that was pulled");
 
 
-localStorage.getItem("fact");
+// localStorage.getItem("fact");
 
