@@ -7,11 +7,13 @@ var saveFactBtn = document.getElementById('save-fact')
 var newFactBtn = document.getElementById('new-fact')
 var savedFactBtn = document.getElementById('saved-fact')
 
+
 // Generate category buttons
 const categories = [
   {
     name:"Numbers",
     API:"https://numbersapi.p.rapidapi.com/50/trivia?fragment=true&notfound=floor&json=true",
+
   },
   {
     name:"Cats",
