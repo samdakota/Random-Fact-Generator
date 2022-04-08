@@ -2,16 +2,18 @@ var categoryContainerEl = document.getElementById('category-container')
 var newFactContainerEl = document.getElementById('fact-container')
 var savedFactContainerEl = document.getElementById('saved-fact-container')
 
-// buttons
+// Buttons
 var saveFactBtn = document.getElementById('save-fact')
 var newFactBtn = document.getElementById('new-fact')
 var savedFactBtn = document.getElementById('saved-fact')
 
-// generate category buttons
+
+// Generate category buttons
 const categories = [
   {
     name:"Numbers",
-    API:"",
+    API:"https://numbersapi.p.rapidapi.com/50/trivia?fragment=true&notfound=floor&json=true",
+
   },
   {
     name:"Cats",
@@ -22,28 +24,58 @@ const categories = [
 function createCategoryBtns() {
   for (let i = 0; i < categories.length; i++) {
     var categoryButton = document.createElement("button");
-    categoryButton.onclick = displayNewFact;
+    categoryButton.onclick = displayNewCatFact;
     categoryButton.textContent = categories[i].name;
     if (categories[i].name == "Cats") {
       categoryButton.setAttribute("id", "cat-button")
     } else if (categories[i].name == "Numbers") {
-      categoryButton.setAttribute("id", "numbers-button");
+      categoryButton.onclick = displayNewNumberFact;
     }
     categoryContainerEl.appendChild(categoryButton);
   }
 }
 createCategoryBtns();
 
-function displayNewFact() {
-  var newFactEl = document.createElement("h1");
-  newFactEl.textContent = "response";
-  newFactContainerEl.appendChild(newFactEl);
-  categoryContainerEl.setAttribute("class", "hide");
-  newFactBtn.removeAttribute("class", "hide");
-  saveFactBtn.removeAttribute("class", "hide");
+//Display Cat Fact
+function displayNewCatFact() {
+  var newCatFactEl = document.createElement("h1");
+  var catApiUrl = "https://cat-fact.herokuapp.com/facts";
+
+  // Fetch request to url
+  fetch(catApiUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var newCatFact = data[randomNumber()].text;
+      newCatFactEl.textContent = newCatFact;
+      newFactContainerEl.appendChild(newCatFactEl);
+      categoryContainerEl.setAttribute("class", "hide");
+      newFactBtn.removeAttribute("class", "hide");
+      saveFactBtn.removeAttribute("class", "hide");
+  });
+}
+//Display Number Fact
+function displayNewNumberFact() {
+  var newNumberFactEl = document.createElement("h1");
+  var numberApiUrl = "https://numbersapi.p.rapidapi.com/50/trivia?fragment=true&notfound=floor&json=true";
+
+  //Fetch request to url
+  fetch(numberApiUrl, options)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var newNumberFact = data.text;
+      newNumberFactEl.textContent = "50 is " + newNumberFact;
+      newFactContainerEl.appendChild(newNumberFactEl);
+      categoryContainerEl.setAttribute("class", "hide");
+      newFactBtn.removeAttribute("class", "hide");
+      saveFactBtn.removeAttribute("class", "hide");
+    });
 }
 
-//fetch requests to both APIs
+//Info for Numbers API
 var options = {
   method: "GET",
   headers: {
@@ -52,40 +84,7 @@ var options = {
   },
 };
 
-// create random number less than max value
-function randomNumber(max) {
-  var max = 10;
-  return Math.floor(Math.random() * max);
+// Create random number for cat fact
+function randomNumber() {
+  return Math.floor(Math.random() * 5);
 }
-
-var getNumberFact = function (number) {
-  var numberApiUrl =
-    "https://numbersapi.p.rapidapi.com/"+number+"/trivia?fragment=true&notfound=floor&json=true";
-
-  // make a get request to url
-  fetch(numberApiUrl, options)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    });
-};
-
-var getCatFact = function () {
-  var catApiUrl = "https://cat-fact.herokuapp.com/facts";
-
-  // make a get request to url
-  fetch(catApiUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    });
-    // var newCatFact = data[randomNumber(10)].text;
-    // console.log(newCatFact);
-};
-getCatFact();
-
-
