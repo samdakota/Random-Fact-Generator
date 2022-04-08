@@ -1,36 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <html lang="en" dir="ltr"
+    <head>
+    <meta charset="utf-8">  
+    <title>Random Facts Generator </title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Project 1</title>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    </head>
 
 <body>
+
+<!--
+<div class="header">
     <header>
-        <div>
+        <div class="h2">
             <h2 id="main-header">Random Fact Generator</h2>
         </div>
         <div>
             <h2 id="saved-fact-header">My Saved Facts</h2>
         </div>
     </header>
+</div>
+-->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <h1 class="navbar-item">
+        Random Facts Generator
+       </h1>
+   </nav>
 
-    <main>
-        <div id="category-container"></div>
-        <div id="fact-container"></div>
-        <div id="saved-fact-container"></div>
-    </main>
+   <main>
+    <!--category-container-->
+   <div
+           class="header"><header>Choose a category<header></div>
+           <div  
+             class="categeory-buttons">
+             <div class="cat-buttons">
+              <button class="button is-fullwidth"><a href="index.html"> Cats</a></button>
+             </div>
+             <br>
+             <div class="num-buttons">
+              <button class="button is-fullwidth"><a href="index.html">Numbers</a></button>
+             </div>
+           </div>
+         </div>
 
+    <!--fact-container-->
+
+   <div class="card">
+    <div class="content">
+      <div class="quote-area">
+        <i class="fas fa-quote-left"></i>
+         <p class="quote">Adult cats have 30 teeth, while kittens  have 26.</p>
+        <i class="fas fa-quote-right"></i>
+       </div>
+    
+       <div class="author">
+         <span>__</span>
+          <span class="name">Random Facts Generator </span>
+       </div>
+      </div>
+    </div>
+   </div>
+
+   <div
+    class="header"><header>My Saved Facts<header></div>
+     <div  
+      class="categeory-buttons">
+     </div>
+  </div>
+
+
+     <!--saved-fact-container-->
+
+  <div class="card">
+    <div class="content">
+       <div class="quote-area">
+         <i class="fas fa-quote-left"></i>
+         <p class="quote">Adult cats have 30 teeth, while kittens  have 26.</p>
+         <i class="fas fa-quote-right"></i>
+      </div>
+
+      <div class="author">
+        <span>__</span>
+        <span class="name">Random Facts Generator </span>
+      </div>
+    </div>
+   </div>
+ 
+
+
+
+</main>
+
+
+   
+   <div class="features">
+    <span class="speech"><i class="fas fa-volume-up"></i></span>
+   <span class="copy"><i class="fas fa-copy"></i></span>
+   <span class="twitter"><i class="fab fa-twitter"></i></span>
+   <span class="facebook"><i class="fab fa-facebook"></i></span>
+   <span class="facebook"><i class="fab fa-instagram"></i></span>
+  </div>
+
+
+
+  <!-- 
+  <div  class="buttons">
+    <button class="button">New Fact</button>
+    <button class="button">Save Fact</button>
+    <button class="button">
+      <a href="savedfact.html" >Saved Facts</a>
+     </button>
+  </div>
+-->
+
+
+  <div  class="buttons">
+    <button class="button">New Fact</button>
+    <button class="button">Save Fact</button>
+    <button class="button">
+      <a href="savedfact.html" >Saved Facts</a>
+     </button>
+  </div>
+
+  <!--   
+ <div class="footer">
     <footer>
         <button id="save-fact">Save Fact</button>
         <button id="new-fact">New Fact</button>
         <button id="saved-facts">Saved Facts</button>
     </footer>
-
+</div>
+-->
+<footer class="footer">
+    <div class="footer-contain">
+      <p>Power By:</p>
+      <a href="">Sam Miller</a>
+      <a href="">|  Rob Benney</a>
+      <a href="">|  Tariq Stanikzai</a>
+      </p>
+    </div>
+  </footer>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
