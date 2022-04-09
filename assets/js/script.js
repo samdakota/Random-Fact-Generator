@@ -65,14 +65,6 @@ function displayNewFact(api_url, kind) {
       saveFactBtn.removeAttribute("class", "hide");
     });
 }
-//Info for Numbers API
-var options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Host": "numbersapi.p.rapidapi.com",
-    "X-RapidAPI-Key": "9c10ec6a12msh0d77185cdbaed53p1dfbb3jsn659430c1bc12",
-  },
-};
 
 // Create random number for cat fact
 function randomNumber() {
