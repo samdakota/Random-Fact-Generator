@@ -1,14 +1,13 @@
 <!DOCTYPE html>
- <html lang="en" dir="ltr"
-    <head>
+<html lang="en" dir="ltr"
+<head>
     <meta charset="utf-8">  
     <title>Random Facts Generator </title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    </head>
-
+</head>
 <body>
 
 <!--
@@ -25,87 +24,78 @@
 -->
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <h1 class="navbar-item">
+        <h1 class="navbar-item">
         Random Facts Generator
        </h1>
-   </nav>
+</nav>
 
-   <main>
-    <!--category-container-->
-   <div
-           class="header"><header>Choose a category<header></div>
-           <div class="categeory-buttons">
-             <div class="cat-buttons">
-              <button class="button is-fullwidth"><a href="index.html"> Cats</a></button>
-             </div>
-             <br>
-             <div class="num-buttons">
-              <button class="button is-fullwidth"><a href="index.html">Numbers</a></button>
-             </div>
-           </div>
-         </div>
-
-    <!--fact-container-->
-
-   <div class="card">
-    <div class="content">
-      <div class="quote-area">
-        <i class="fas fa-quote-left"></i>
-         <p class="quote">Adult cats have 30 teeth, while kittens  have 26.</p>
-        <i class="fas fa-quote-right"></i>
-       </div>
-    
-       <div class="author">
-         <span>__</span>
-          <span class="name">Random Facts Generator </span>
-       </div>
-      </div>
+<main>
+<!--category-container-->
+<div class="header">
+    <header>Choose a fact category<header>
+    <div class="category-container categeory-buttons">
+        <div id="cat-buttons">
+            <button class="hide button is-fullwidth">Cats</button>
+        </div>
+        <br>
+        <div id="num-buttons">
+            <button class="button is-fullwidth">Numbers</button>
+        </div>
     </div>
-   </div>
+</div>
 
-   <div
-    class="header"><header>My Saved Facts<header></div>
-     <div  
-      class="categeory-buttons">
-     </div>
-  </div>
-
-
-     <!--saved-fact-container-->
-
-  <div class="card">
-    <div class="content">
-       <div class="quote-area">
-         <i class="fas fa-quote-left"></i>
-         <p class="quote">Adult cats have 30 teeth, while kittens  have 26.</p>
-         <i class="fas fa-quote-right"></i>
-      </div>
-
-      <div class="author">
+<!--fact-container-->
+<div class="hide fact-container card">
+    <div class="hide content">
+        <div class="hide quote-area">
+            <i class="fas fa-quote-left"></i>
+            <p class="quote cat-fact num-fact"></p>
+            <i class="fas fa-quote-right"></i>
+        </div>
+    
+        <div class="author">
         <span>__</span>
         <span class="name">Random Facts Generator </span>
-      </div>
+        </div>
+        </div>
     </div>
-   </div>
+</div>
+
+<div class="header hide">
+    <header>My Saved Facts<header>
+     <div class="categeory-buttons"></div>
+</div>
+
+
+<!--saved-fact-container-->
+
+<div class="hide saved-fact-container card">
+    <div class="content">
+        <div class="quote-area">
+            <i class="fas fa-quote-left"></i>
+            <p class="quote"></p>
+            <i class="fas fa-quote-right"></i>
+        </div>
+
+    <div class="author">
+        <span>__</span>
+        <span class="name">Random Facts Generator </span>
+    </div>
+    </div>
+</div>
  
 
 
 
 </main>
-
-
-   
-   <div class="features">
+<div class="features">
     <span class="speech"><i class="fas fa-volume-up"></i></span>
-   <span class="copy"><i class="fas fa-copy"></i></span>
-   <span class="twitter"><i class="fab fa-twitter"></i></span>
-   <span class="facebook"><i class="fab fa-facebook"></i></span>
-   <span class="facebook"><i class="fab fa-instagram"></i></span>
-  </div>
-
-
-
-  <!-- 
+    <span class="copy"><i class="fas fa-copy"></i></span>
+    <span class="twitter"><i class="fab fa-twitter"></i></span>
+    <span class="facebook"><i class="fab fa-facebook"></i></span>
+    <span class="facebook"><i class="fab fa-instagram"></i></span>
+</div>
+<!-- 
   <div  class="buttons">
     <button class="button">New Fact</button>
     <button class="button">Save Fact</button>
@@ -114,17 +104,12 @@
      </button>
   </div>
 -->
-
-
-  <div  class="buttons">
-    <button class="button">New Fact</button>
-    <button class="button">Save Fact</button>
-    <button class="button">
-      <a href="savedfact.html" >Saved Facts</a>
-     </button>
-  </div>
-
-  <!--   
+<div class="buttons">
+    <button id="new-fact" class="hide button">New Fact</button>
+    <button id="save-fact" class="hide button">Save Fact</button>
+    <button id="saved-fact" class="hide button">Saved Facts</button>
+</div>
+<!--   
  <div class="footer">
     <footer>
         <button id="save-fact">Save Fact</button>
@@ -141,7 +126,9 @@
       <a href="">|  Tariq Stanikzai</a>
       </p>
     </div>
-  </footer>
-    <script src="./assets/js/script.js"></script>
+</footer>
+
+<script src="./assets/js/script.js"></script>
+
 </body>
 </html>

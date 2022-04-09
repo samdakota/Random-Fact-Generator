@@ -1,4 +1,4 @@
-const quoteText = document.querySelector(".quote"),
+var quoteText = document.querySelector(".quote"),
 speechBtn = document.querySelector(".speech"),
 copyBtn = document.querySelector(".copy"),
 twitterBtn = document.querySelector(".twitter"),
@@ -9,6 +9,8 @@ synth = speechSynthesis;
 var categoryContainerEl = document.getElementById('category-container')
 var newFactContainerEl = document.getElementById('fact-container')
 var savedFactContainerEl = document.getElementById('saved-fact-container')
+var newCatFactEl = document.getElementById('cat-fact')
+var newNumberFactEl = document.getElementById('num-fact')
 
 // Buttons
 var saveFactBtn = document.getElementById('save-fact')
@@ -29,20 +31,38 @@ const categories = [
   }
 ]
 
+document.getElementById("cat-buttons").addEventListener("click", displayNewCatFact);
+document.getElementById("num-buttons").addEventListener("click", displayNewNumberFact);
+
+
 function createCategoryBtns() {
   for (let i = 0; i < categories.length; i++) {
     var categoryButton = document.createElement("button");
     categoryButton.onclick = displayNewCatFact;
     categoryButton.textContent = categories[i].name;
     if (categories[i].name == "Cats") {
-      categoryButton.setAttribute("id", "cat-button")
+      categoryButton.setAttribute("class", "cat-buttons")
     } else if (categories[i].name == "Numbers") {
       categoryButton.onclick = displayNewNumberFact;
     }
-    //categoryContainerEl.appendChild(categoryButton);
+    // categoryContainerEl.appendChild(categoryButton);
   }
 }
 createCategoryBtns();
+
+//Info for Numbers API
+var options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Host": "numbersapi.p.rapidapi.com",
+    "X-RapidAPI-Key": "9c10ec6a12msh0d77185cdbaed53p1dfbb3jsn659430c1bc12",
+  },
+};
+
+// Create random number for cat fact
+function randomNumber() {
+  return Math.floor(Math.random() * 5);
+}
 
 //Display Cat Fact
 function displayNewCatFact() {
@@ -59,6 +79,7 @@ function displayNewCatFact() {
       newCatFactEl.textContent = newCatFact;
       newFactContainerEl.appendChild(newCatFactEl);
       categoryContainerEl.setAttribute("class", "hide");
+      newFactContainerEl.removeAttribute("class", "hide")
       newFactBtn.removeAttribute("class", "hide");
       saveFactBtn.removeAttribute("class", "hide");
   });
@@ -78,23 +99,10 @@ function displayNewNumberFact() {
       newNumberFactEl.textContent = "50 is " + newNumberFact;
       newFactContainerEl.appendChild(newNumberFactEl);
       categoryContainerEl.setAttribute("class", "hide");
+      newFactContainerEl.removeAttribute("class", "hide")
       newFactBtn.removeAttribute("class", "hide");
       saveFactBtn.removeAttribute("class", "hide");
     });
-}
-
-//Info for Numbers API
-var options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Host": "numbersapi.p.rapidapi.com",
-    "X-RapidAPI-Key": "9c10ec6a12msh0d77185cdbaed53p1dfbb3jsn659430c1bc12",
-  },
-};
-
-// Create random number for cat fact
-function randomNumber() {
-  return Math.floor(Math.random() * 5);
 }
 
 speechBtn.addEventListener("click", ()=>{
