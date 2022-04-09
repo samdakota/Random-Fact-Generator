@@ -13,18 +13,6 @@ const categoriesObj = {
   Cats: "https://cat-fact.herokuapp.com/facts",
 };
 
-// Generate category buttons
-// const categories = [
-//   {
-//     name: "Numbers",
-//     API: "http://numbersapi.com/random",
-//   },
-//   {
-//     name: "Cats",
-//     API: "https://cat-fact.herokuapp.com/facts",
-//   },
-// ];
-
 document.addEventListener("click", function (event) {
   if (event.target.className === "fact-button") {
     var id = event.target.id;
