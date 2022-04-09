@@ -9,8 +9,8 @@ synth = speechSynthesis;
 var categoryContainerEl = document.getElementById('category-container')
 var newFactContainerEl = document.getElementById('fact-container')
 var savedFactContainerEl = document.getElementById('saved-fact-container')
-var newCatFactEl = document.getElementById('cat-fact')
-var newNumberFactEl = document.getElementById('num-fact')
+// var newCatFactEl = document.getElementById('cat-fact')
+// var newNumberFactEl = document.getElementById('num-fact')
 
 // Buttons
 var saveFactBtn = document.getElementById('save-fact')
@@ -38,6 +38,7 @@ document.getElementById("num-buttons").addEventListener("click", displayNewNumbe
 function createCategoryBtns() {
   for (let i = 0; i < categories.length; i++) {
     var categoryButton = document.createElement("button");
+    console.log(categoryButton)
     categoryButton.onclick = displayNewCatFact;
     categoryButton.textContent = categories[i].name;
     if (categories[i].name == "Cats") {
