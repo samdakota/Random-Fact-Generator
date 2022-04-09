@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Project 1</title>
-</head>
-
+    <head>
+        <meta charset="utf-8">  
+        <title>Random Facts Generator </title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    </head>
+<!--
 <body>
     <header>
         <div>
@@ -30,6 +31,89 @@
         <button class="hide" id="new-fact">New Fact</button>
         <button id="saved-facts">Saved Facts</button>
     </footer>
+-->
+<!-- Sam's is above, tariq's is below -->
+    
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <h1 class="navbar-item">Random Facts Generator</h1>
+    </div>    
+</nav>
+    
+<main>
+<!--category-container-->
+<div class="header">
+    <div id="category-container" class="categeory-buttons">
+        <header>Choose a fact category</header>
+    </div>
+</div>
+    
+<!--fact-container-->
+<div id="fact container" class="fact-container hide card">
+    <div class="content">
+        <div class="quote-area">
+            <i class="fas fa-quote-left"></i>
+            <p class="quote"></p>
+            <i class="fas fa-quote-right"></i>
+        </div>
+        
+            <div class="author">
+                <span>__</span>
+                <span class="name">Random Facts Generator</span>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div class="header hide">
+    <header>My Saved Facts<header>
+    <div class="categeory-buttons"></div>
+</div>
+    
+    
+    <!--saved-fact-container-->
+<div class="hide saved-fact-container card">
+    <div class="content">
+        <div class="quote-area">
+            <i class="fas fa-quote-left"></i>
+            <p class="quote"></p>
+            <i class="fas fa-quote-right"></i>
+        </div>
+    
+        <div class="author">
+            <span>__</span>
+            <span class="name">Random Facts Generator </span>
+        </div>
+    </div>
+</div>
+    
+    
+    
+</main>
+<div class="features">
+    <span class="speech"><i class="fas fa-volume-up"></i></span>
+    <span class="copy"><i class="fas fa-copy"></i></span>
+    <span class="twitter"><i class="fab fa-twitter"></i></span>
+    <span class="facebook"><i class="fab fa-facebook"></i></span>
+    <span class="facebook"><i class="fab fa-instagram"></i></span>
+</div>
+    
+<div class="buttons">
+    <button id="new-fact" class="hide button">New Fact</button>
+    <button id="save-fact" class="hide button">Save Fact</button>
+    <button id="saved-fact" class="hide button">Saved Facts</button>
+</div>
+   
+<footer class="footer">
+    <div class="footer-contain">
+        <p>Power By:
+        <a href="">Sam Miller</a>
+        <a href="https://rbenney15.github.io/Benney-Portfolio/">|  Rob Benney</a>
+        <a href="">|  Tariq Stanikzai</a>
+        </p>
+    </div>
+</footer>
+    
 
     <script src="./assets/js/script.js"></script>
 </body>

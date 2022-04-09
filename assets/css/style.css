@@ -1,8 +1,171 @@
-/*  Bulma CSS framwork*/
-@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+body{
+ 
+    background: #b30202;
+   
+  }
+  
+  .header {
+    font-size: 25px;
+    color: #fff;
+    margin: 15%;
+    text-align: center;
+    
+  }
+  .categeory-buttons {
+    display: flexbox;
+  
+    font-size: 25px;
+    color: #fff;
+    margin: 15%;
+    text-align: center;
+    
+  }
+  
+  .cat-buttons {
+    align-content: center;
+  }
+  
+  
+  .navbar .navbar-item {
+    background-color: #0e152c;
+    margin: 0  auto;
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    justify-content: center;
+    width: 100%;
+  
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+  
+  
+  .card{
+    
+    background: #fff;
+    border-radius: 15px;
+    padding: 5% 0% 10% 0%;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+    margin: 25% 10% 25% 10%;
+    
+  }
+  
+  .savedcard{
+    background: #fff;
+    border-radius: 15px;
+    padding: 5% 0% 10% 0%;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+    margin: 25% 10% 25% 10%;
+  }
+  
+  
+  .content :where(i, p, span){
+    color: #202842;
+  }
+  .card .content{
+    margin: 20px;
+  }
+  .content .quote-area{
+    display: flex;
+    justify-content: center;
+  }
+  .quote-area i{
+    font-size: 20px;
+  }
+  
+  .quote-area i:first-child{
+    margin: 3px 10px 0 0;
+  }
+  .quote-area i:last-child{
+    display: flex;
+    margin: 0 0 3px 10px;
+    align-items: flex-end;
+  }
+  .quote-area .quote{
+    font-size: 22px;
+    text-align: center;
+    word-break: break-all;
+  }
+  .content .author{
+    display: flex;
+    font-size: 16px;
+    margin-top: 20px;
+    font-style: italic;
+    justify-content: flex-end;
+  }
+  .author span:first-child{
+    margin: -7px 5px 0 0;
+    font-family: monospace;
+  }
+  
+  
+  
+  .buttons {
+    margin: auto;
+    display: flex;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 13px 22px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+  
+  }
 
+  button {
+    display: block;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  
+  
+  .features {
+    display: flex;
+    margin: 0px 0 5px 0;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: center;
+  }
+  .features ul{
+    display: flex; 
+    
+    
+  }
+  
+  .features span {
+    margin: 0 15px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    cursor: pointer;
+    color: #ffffff;
+    list-style: none;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  
+  span :is(:hover, .active){
+    color: #fff;
+    background: #000000;
+  }
+  span .speech.active{
+    pointer-events: none;
+  }
+  
+  
+  
+  .footer {
+    background: #202842;
+    width: 100%;
+    text-align: center; 
+  }
 
 .hide {
     display: none;
 }
-
