@@ -8,22 +8,11 @@ var newFactBtn = document.getElementById("new-fact");
 var savedFactBtn = document.getElementById("saved-fact");
 newFactBtn.addEventListener("click", newFact);
 
+
 const categoriesObj = {
   Numbers: "http://numbersapi.com/random",
   Cats: "https://cat-fact.herokuapp.com/facts",
 };
-
-// Generate category buttons
-const categories = [
-  {
-    name: "Numbers",
-    API: "http://numbersapi.com/random",
-  },
-  {
-    name: "Cats",
-    API: "https://cat-fact.herokuapp.com/facts",
-  },
-];
 
 document.addEventListener("click", function (event) {
   if (event.target.className === "fact-button") {
@@ -44,7 +33,6 @@ function createCategoryBtns() {
 createCategoryBtns();
 
 function newFact() {
-  console.log("test");
   categoryContainerEl.removeAttribute("class", "hide");
   newFactBtn.setAttribute("class", "hide");
   saveFactBtn.setAttribute("class", "hide");
@@ -91,14 +79,23 @@ function randomNumber() {
   return Math.floor(Math.random() * 5);
 }
 
-// function createSavedFactEl() {
-//   var savedFact = document.createElement("li");
-//   savedFact.textContent =
-// }
+function saveFact(newFactEl) {
+  localStorage.setItem("key", newFactEl.textContent);
+}
 
-// function displaySavedFacts() {
-//   var savedFacts = localStorage.getItem('facts');
-//   for (let i = 0; i < savedFacts.length; i++) {
-//     createSavedFactEl(savedFacts[i]);
-//   }
-// }
+function createSavedFactEl(fact, ol) {
+  var savedFact = document.createElement("li");
+  savedFact.textContent = fact;
+  ol.appendChild(savedFact)
+}
+
+function displaySavedFacts() { 
+  var savedFactList = document.createElement("ol");
+  var savedFacts = localStorage.getItem('facts');
+  for (let i = 0; i < savedFacts.length; i++) {
+    createSavedFactEl(savedFacts[i], savedFactList)
+  }
+}
+
+// saveFactBtn.addEventListener("click", saveFact);
+// savedFactBtn.addEventListener("click", displaySavedFacts);
