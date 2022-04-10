@@ -1,13 +1,14 @@
 var categoryContainerEl = document.getElementById("category-container");
 var newFactContainerEl = document.getElementById("fact-container");
 var savedFactContainerEl = document.getElementById("saved-fact-container");
+var mainHeader = document.getElementById("main-header");
+var savedFactHeader = document.getElementById("saved-fact-header");
 
 // Buttons
 var saveFactBtn = document.getElementById("save-fact");
 var newFactBtn = document.getElementById("new-fact");
-var savedFactBtn = document.getElementById("saved-fact");
+var savedFactBtn = document.getElementById("saved-facts");
 newFactBtn.addEventListener("click", newFact);
-
 
 const categoriesObj = {
   Numbers: "http://numbersapi.com/random",
@@ -59,6 +60,7 @@ function displayNewFact(api_url, kind) {
       }
       newFactContainerEl.innerHTML = "";
       newFactContainerEl.appendChild(newFactEl);
+      newFactContainerEl.setAttribute("id", "fact-text");
       newFactContainerEl.removeAttribute("class", "hide");
       categoryContainerEl.setAttribute("class", "hide");
       newFactBtn.removeAttribute("class", "hide");
@@ -71,23 +73,35 @@ function randomNumber() {
   return Math.floor(Math.random() * 5);
 }
 
-function saveFact(newFactEl) {
-  localStorage.setItem("key", newFactEl.textContent);
+saveFactBtn.addEventListener("click", saveFact);
+
+// Save fact to localstorage
+function saveFact() {
+  var newFactText = document.getElementById("fact-text");
+  localStorage.setItem("key", newFactText.textContent);
 }
 
-function createSavedFactEl(fact, ol) {
-  var savedFact = document.createElement("li");
-  savedFact.textContent = fact;
-  ol.appendChild(savedFact)
-}
+//Code SamA showed us that I can't get to work :/
+// function createSavedFactEl(fact, ol) {
+//   var savedFact = document.createElement("li");
+//   savedFact.textContent = fact;
+//   ol.appendChild(savedFact);
+// }
 
-function displaySavedFacts() { 
+savedFactBtn.addEventListener("click", displaySavedFacts);
+
+function displaySavedFacts() {
+  mainHeader.setAttribute("class", "hide");
+  savedFactHeader.removeAttribute("class", "hide");
   var savedFactList = document.createElement("ol");
-  var savedFacts = localStorage.getItem('facts');
-  for (let i = 0; i < savedFacts.length; i++) {
-    createSavedFactEl(savedFacts[i], savedFactList)
-  }
+  var savedFacts = localStorage.getItem("key");
+  console.log(savedFacts);
+  var displayedFact = document.createElement("li");
+  displayedFact.textContent = savedFacts;
+  savedFactList.appendChild(displayedFact);
+  savedFactContainerEl.appendChild(savedFactList);
+  savedFactContainerEl.removeAttribute("class", "hide");
+  newFactContainerEl.setAttribute("class", "hide");
+  saveFactBtn.setAttribute("class", "hide");
+  savedFactBtn.setAttribute("class", "hide");
 }
-
-// saveFactBtn.addEventListener("click", saveFact);
-// savedFactBtn.addEventListener("click", displaySavedFacts);
