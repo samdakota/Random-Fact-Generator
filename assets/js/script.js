@@ -37,7 +37,9 @@ function newFact() {
   categoryContainerEl.removeAttribute("class", "hide");
   newFactBtn.setAttribute("class", "hide");
   saveFactBtn.setAttribute("class", "hide");
+  savedFactBtn.removeAttribute("class", "hide");
   newFactContainerEl.setAttribute("class", "hide");
+  savedFactContainerEl.setAttribute("class", "hide");
 }
 
 function displayNewFact(api_url, kind) {
@@ -79,6 +81,7 @@ saveFactBtn.addEventListener("click", saveFact);
 function saveFact() {
   var newFactText = document.getElementById("fact-text");
   localStorage.setItem("key", newFactText.textContent);
+  console.log(localStorage);
 }
 
 //Code SamA showed us that I can't get to work :/
@@ -95,13 +98,14 @@ function displaySavedFacts() {
   savedFactHeader.removeAttribute("class", "hide");
   var savedFactList = document.createElement("ol");
   var savedFacts = localStorage.getItem("key");
-  console.log(savedFacts);
   var displayedFact = document.createElement("li");
   displayedFact.textContent = savedFacts;
   savedFactList.appendChild(displayedFact);
   savedFactContainerEl.appendChild(savedFactList);
   savedFactContainerEl.removeAttribute("class", "hide");
   newFactContainerEl.setAttribute("class", "hide");
+  categoryContainerEl.setAttribute("class", "hide");
   saveFactBtn.setAttribute("class", "hide");
   savedFactBtn.setAttribute("class", "hide");
+  newFactBtn.removeAttribute("class", "hide");
 }
