@@ -1,8 +1,87 @@
-/*  Bulma CSS framwork*/
-@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
+header {
+    width: 100%;
+    padding: 30px;
+    background-color: black;
+    color: white;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+body {
+    background-color: red;
+}
 
 .hide {
     display: none;
 }
 
+main {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 100px;
+}
+
+.fact-button {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    width: 200px;
+    padding: 15px;
+    margin: 25px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+#fact-text {
+    padding: 45px;
+    border: 2px solid;
+    border-radius: 15px;
+    background-color: white;
+    width: 60%;
+}
+
+li {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    margin: 25px;
+    font-size: 16px;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 30px;
+    background-color: black;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    width: 120px;
+    padding: 5px;
+    margin: 0 60px;
+    font-size: 12px;
+    border-radius: 10px;
+}
