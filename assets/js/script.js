@@ -40,6 +40,8 @@ function newFact() {
   savedFactBtn.removeAttribute("class", "hide");
   newFactContainerEl.setAttribute("class", "hide");
   savedFactContainerEl.setAttribute("class", "hide");
+  mainHeader.removeAttribute("class", "hide");
+  savedFactHeader.setAttribute("class", "hide");
 }
 
 function displayNewFact(api_url, kind) {
