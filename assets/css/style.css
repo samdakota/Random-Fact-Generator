@@ -1,34 +1,46 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
 
 header {
-    width: 100%;
-    padding: 30px;
-    background-color: black;
-    color: white;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-  }
+   
+  background-color: #000000;
+  margin: 0  auto;
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  justify-content: center;
+  width: 100%;
 
-body {
-    background-color: red;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
+
+body, html{
+    height: 100%;
+}
 .hide {
     display: none;
 }
 
 main {
+    background-color: rgb(131, 10, 10);
+    height: 75%;
     justify-content: center;
+    
     display: flex;
     flex-wrap: wrap;
-    padding: 100px;
+    padding: 50px;
 }
-
+.container {
+    background: #fff;
+  border-radius: 15px;
+  padding: 5% 0% 10% 0%;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+  margin: 25% 10% 25% 10%;
+}
 .fact-button {
     background-color: white;
     display: flex;
@@ -43,10 +55,13 @@ main {
 }
 
 #fact-text {
+    font-size: 150%;
+    font-weight: 900;
     padding: 45px;
     border: 2px solid;
     border-radius: 15px;
     background-color: white;
+    color: black;
     width: 60%;
 }
 
@@ -63,15 +78,15 @@ li {
     border-radius: 10px;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 30px;
+.footer {
+    display: flex;
+    bottom: 0%;
+    max-height: 15px;
     background-color: black;
     justify-content: center;
-    display: flex;
+    
     flex-wrap: wrap;
+   
 }
 
 footer button {
@@ -81,7 +96,8 @@ footer button {
     text-align: center;
     width: 120px;
     padding: 5px;
-    margin: 0 60px;
-    font-size: 12px;
+    padding-bottom: 0%;
+   
+    font-size: 16px;
     border-radius: 10px;
 }

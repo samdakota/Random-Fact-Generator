@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Project 1</title>
-</head>
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+     <link rel="stylesheet" href="./assets/css/style.css">
+    
+     <title>Random Fact Generator</title>
+ </head>
 
-<body>
-    <header>
-        <div>
-            <h2 id="main-header">Random Fact Generator</h2>
-        </div>
-        <div>
-            <h2 id="saved-fact-header" class="hide">My Saved Facts</h2>
-        </div>
-    </header>
+  <body>
+    
+     <header>
+         <div>
+             <h2 id="main-header">Random Fact Generator</h2>
+         </div>
+         <div>
+             <h2 id="saved-fact-header" class="hide">My Saved Facts</h2>
+         </div>
+      </header>
 
-    <main>
-        <div id="category-container"></div>
-        <div id="fact-container"></div>
-        <div id="saved-fact-container"></div>
-    </main>
+     <main>
+        
+         <div id="category-container"></div>
+         <div id="fact-container"></div>
+         <div id="saved-fact-container"></div>
 
-    <footer>
-        <button class="hide" id="save-fact">Save Fact</button>
-        <button class="hide" id="new-fact">New Fact</button>
-        <button id="saved-facts">Saved Facts</button>
-    </footer>
+      </main>
+
+   
+      <footer class="footer">
+            <div class="content has-text-centered">
+            <div><button class="hide" id="save-fact">Save Fact</button></div>
+            <div><button class="hide" id="new-fact">New Fact</button></div>
+            <div><button id="saved-facts">Saved Facts</button></div> 
+      </footer>
+
 
     <script src="./assets/js/script.js"></script>
 </body>
